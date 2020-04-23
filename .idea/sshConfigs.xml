@@ -7,6 +7,8 @@
       <sshConfig authType="PASSWORD" host="192.168.43.241" id="9a36913b-50e5-4883-a47a-2493a9fe2f90" port="22" customName="pi" nameFormat="CUSTOM" />
       <sshConfig authType="PASSWORD" host="192.168.43.241" id="5ed2c85d-52ac-48fe-8601-46ae8860e38e" port="22" customName="pi" nameFormat="CUSTOM" />
       <sshConfig authType="PASSWORD" host="192.168.43.241" id="32d747d4-0669-4593-9156-ac05deedb5d0" port="22" customName="pi" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="192.168.43.241" id="748c62c6-5c5d-4ff1-8139-fadf7b6eba6e" port="22" customName="pi" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="192.168.43.241" id="1f52c2de-7ef6-4980-b0fa-912c6a4829d7" port="22" customName="pi" nameFormat="CUSTOM" />
     </configs>
   </component>
 </project>

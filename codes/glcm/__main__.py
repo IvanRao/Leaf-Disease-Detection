@@ -1,105 +1,8 @@
 from os import listdir
-
-import numpy as np
 import os
 from skimage.feature import greycomatrix, greycoprops
-import pandas as pd
 import cv2
 from skimage.measure import label
-
-
-def feature_extraction_training_datasets():
-    proList = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy']
-    featlist = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy', 'hue', 'value', 'saturaton', 'path', label]
-    properties = np.zeros(6)
-    final = []
-    crop = "potato"
-    folders = ["early_blight", "healthy", "late_blight"]
-    for folder in folders:
-        print(folder)
-        labell = folders.index(folder)
-        INPUT_SCAN_FOLDER = "../../data/" + crop + "/training/" + folder + "/"
-
-        image_folder_list = os.listdir(INPUT_SCAN_FOLDER)
-
-        for i in range(len(image_folder_list)):
-
-            print(image_folder_list[i])
-
-            abc = cv2.imread(INPUT_SCAN_FOLDER + image_folder_list[i])
-
-            gray_image = cv2.cvtColor(abc, cv2.COLOR_BGR2GRAY)
-            hsv = cv2.cvtColor(abc, cv2.COLOR_BGR2HSV)
-            h, s, v = cv2.split(hsv)
-            h_mean = np.mean(h)
-            h_mean = np.mean(h_mean)
-
-            s_mean = np.mean(s)
-            s_mean = np.mean(s_mean)
-
-            v_mean = np.mean(v)
-            v_mean = np.mean(v_mean)
-
-            glcmMatrix = (greycomatrix(gray_image, [1], [0], levels=2 ** 8))
-            for j in range(0, len(proList)):
-                properties[j] = (greycoprops(glcmMatrix, prop=proList[j]))
-
-            features = np.array(
-                [properties[0], properties[1], properties[2], properties[3], properties[4], h_mean, s_mean, v_mean,
-                 INPUT_SCAN_FOLDER + image_folder_list[i], labell])
-            final.append(features)
-
-    df = pd.DataFrame(final, columns=featlist)
-    filepath = crop + "Final.xlsx"
-    df.to_excel(filepath)
-
-
-def feature_extraction_test_datasets():
-    proList = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy']
-    featlist = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy', 'hue', 'value', 'saturaton', 'path',
-                'label']
-    properties = np.zeros(6)
-    final = []
-    crop = "potato"
-    folders = ["test"]
-    for folder in folders:
-        labell = folders.index(folder)
-        INPUT_SCAN_FOLDER = "../../data/" + crop + "/test/" + folder + "/"
-
-        image_folder_list = os.listdir(INPUT_SCAN_FOLDER)
-
-        for i in range(len(image_folder_list)):
-
-            abc = cv2.imread(INPUT_SCAN_FOLDER + image_folder_list[i])
-
-            gray_image = cv2.cvtColor(abc, cv2.COLOR_BGR2GRAY)
-            hsv = cv2.cvtColor(abc, cv2.COLOR_BGR2HSV)
-            h, s, v = cv2.split(hsv)
-            h_mean = np.mean(h)
-            h_mean = np.mean(h_mean)
-
-            s_mean = np.mean(s)
-            s_mean = np.mean(s_mean)
-
-            v_mean = np.mean(v)
-            v_mean = np.mean(v_mean)
-
-            print(image_folder_list[i])
-
-            glcmMatrix = (greycomatrix(gray_image, [1], [0], levels=2 ** 8))
-            for j in range(0, len(proList)):
-                properties[j] = (greycoprops(glcmMatrix, prop=proList[j]))
-
-            features = np.array(
-                [properties[0], properties[1], properties[2], properties[3], properties[4], h_mean, s_mean, v_mean,
-                 INPUT_SCAN_FOLDER + image_folder_list[i], labell])
-            final.append(features)
-
-    df = pd.DataFrame(final, columns=featlist)
-    filepath = crop + "_test_Final.xlsx"
-    df.to_excel(filepath)
-
-
 from sklearn.externals import joblib
 import pandas as pd
 import numpy as np
@@ -116,10 +19,103 @@ import warnings
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
+LEAF = "tomato"
+LEAF_FOLDER = "../../data/" + LEAF
+RESULT = listdir(f"../../data/" + LEAF + "/training/")
 
-def classify_disease(leaf_name):
-    path = leaf_name + 'Final.xlsx'  # give path where extracted features are saved
-    path_test = leaf_name + '_test_Final.xlsx'  # give path where the test extracted features are saved
+
+def feature_extraction_training_datasets():
+    proList = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy']
+    featlist = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy', 'hue', 'value', 'saturaton', 'path', label]
+    properties = np.zeros(6)
+    final = []
+    folders = listdir(f"{LEAF_FOLDER}/training")
+
+    for folder in folders:
+        labell = folders.index(folder)
+        INPUT_SCAN_FOLDER = "../../data/" + LEAF + "/training/" + folder + "/"
+
+        image_folder_list = os.listdir(INPUT_SCAN_FOLDER)
+
+        for i in range(len(image_folder_list)):
+
+            abc = cv2.imread(INPUT_SCAN_FOLDER + image_folder_list[i])
+
+            gray_image = cv2.cvtColor(abc, cv2.COLOR_BGR2GRAY)
+            hsv = cv2.cvtColor(abc, cv2.COLOR_BGR2HSV)
+            h, s, v = cv2.split(hsv)
+            h_mean = np.mean(h)
+            h_mean = np.mean(h_mean)
+
+            s_mean = np.mean(s)
+            s_mean = np.mean(s_mean)
+
+            v_mean = np.mean(v)
+            v_mean = np.mean(v_mean)
+
+            glcmMatrix = (greycomatrix(gray_image, [1], [0], levels=2 ** 8))
+            for j in range(0, len(proList)):
+                properties[j] = (greycoprops(glcmMatrix, prop=proList[j]))
+
+            features = np.array(
+                [properties[0], properties[1], properties[2], properties[3], properties[4], h_mean, s_mean, v_mean,
+                 INPUT_SCAN_FOLDER + image_folder_list[i], labell])
+            final.append(features)
+
+    df = pd.DataFrame(final, columns=featlist)
+    filepath = LEAF + "Final.xlsx"
+    df.to_excel(filepath)
+
+
+def feature_extraction_test_datasets():
+    proList = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy']
+    featlist = ['contrast', 'dissimilarity', 'homogeneity', 'ASM', 'energy', 'hue', 'value', 'saturaton', 'path',
+                'label']
+    properties = np.zeros(6)
+    final = []
+    folders = listdir(f"{LEAF_FOLDER}/test")
+
+    for folder in folders:
+        labell = folders.index(folder)
+        INPUT_SCAN_FOLDER = "../../data/" + LEAF + "/test/" + folder + "/"
+
+        image_folder_list = os.listdir(INPUT_SCAN_FOLDER)
+
+        for i in range(len(image_folder_list)):
+
+            abc = cv2.imread(INPUT_SCAN_FOLDER + image_folder_list[i])
+
+            gray_image = cv2.cvtColor(abc, cv2.COLOR_BGR2GRAY)
+            hsv = cv2.cvtColor(abc, cv2.COLOR_BGR2HSV)
+            h, s, v = cv2.split(hsv)
+            h_mean = np.mean(h)
+            h_mean = np.mean(h_mean)
+
+            s_mean = np.mean(s)
+            s_mean = np.mean(s_mean)
+
+            v_mean = np.mean(v)
+            v_mean = np.mean(v_mean)
+
+            # print(image_folder_list[i])
+
+            glcmMatrix = (greycomatrix(gray_image, [1], [0], levels=2 ** 8))
+            for j in range(0, len(proList)):
+                properties[j] = (greycoprops(glcmMatrix, prop=proList[j]))
+
+            features = np.array(
+                [properties[0], properties[1], properties[2], properties[3], properties[4], h_mean, s_mean, v_mean,
+                 INPUT_SCAN_FOLDER + image_folder_list[i], labell])
+            final.append(features)
+
+    df = pd.DataFrame(final, columns=featlist)
+    filepath = LEAF + "_test_Final.xlsx"
+    df.to_excel(filepath)
+
+
+def classify_disease():
+    path = LEAF + 'Final.xlsx'  # give path where extracted features are saved
+    path_test = LEAF + '_test_Final.xlsx'  # give path where the test extracted features are saved
 
     abc = pd.read_excel(path)
     test = pd.read_excel(path_test)
@@ -156,11 +152,10 @@ def classify_disease(leaf_name):
     models.append(('GBC', GradientBoostingClassifier(n_estimators=500)))
     models.append(('SGD', SGDClassifier(max_iter=1000)))
     models.append(('MLP', MLPClassifier(hidden_layer_sizes=2048, alpha=0.001, activation='relu', solver='adam')))
-    models.append(("KNN", KNeighborsClassifier(n_neighbors=3, weights='uniform', algorithm='kd_tree')))
 
     for name, model in models:
         model.fit(X_train, y_train)
-        joblib.dump(model, "../cnn/savedModels/potato" + name + ".pkl")  # Path where the model is going to be saved
+        joblib.dump(model, "../cnn/savedModels/" + LEAF + name + ".pkl")  # Path where the model is going to be saved
         score = model.score(t_test, l_test)
         names.append(name)
         results.append(score * 100)
@@ -174,13 +169,13 @@ def classify_disease(leaf_name):
     model = saved[i]
 
     l_pred = model.predict(t_test)
-    prom = np.bincount(l_pred).argmax()  # np.average(l_pred)
+    prom = np.bincount(l_pred).argmax()
     # print('Predicción:', l_pred, '\nReal:', l_test, '\nProm:', int(prom))
     return prom
 
 
-plant_disease_folder_list = listdir(f"../../data/potato/training/")
 feature_extraction_training_datasets()
 feature_extraction_test_datasets()
-result = classify_disease('potato')
-print('Resultado:', plant_disease_folder_list[result])
+result = classify_disease()
+
+print('Resultado:', RESULT[result])
