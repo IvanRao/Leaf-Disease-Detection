@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="157ec2c6-4bcd-41f9-94f9-e3fbcfc67be4" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,11 +268,27 @@
       <workItem from="1587060768067" duration="48000" />
       <workItem from="1587075173977" duration="5219000" />
       <workItem from="1587617524453" duration="4216000" />
+      <workItem from="1587677938800" duration="1355000" />
+      <workItem from="1588281229785" duration="4343000" />
+      <workItem from="1588717190837" duration="2078000" />
+      <workItem from="1588722461547" duration="360000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586934015174">
@@ -277,22 +311,22 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1586934014139" />
-    <state width="2517" height="219" key="GridCell.Tab.0.bottom" timestamp="1587633003372">
+    <state width="2517" height="269" key="GridCell.Tab.0.bottom" timestamp="1588722820742">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="219" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1587633003372" />
-    <state width="2517" height="219" key="GridCell.Tab.0.center" timestamp="1587633003372">
+    <state width="2517" height="269" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1588722820742" />
+    <state width="2517" height="269" key="GridCell.Tab.0.center" timestamp="1588722820742">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="219" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1587633003372" />
-    <state width="2517" height="219" key="GridCell.Tab.0.left" timestamp="1587633003372">
+    <state width="2517" height="269" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1588722820742" />
+    <state width="2517" height="269" key="GridCell.Tab.0.left" timestamp="1588722820742">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="219" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1587633003372" />
-    <state width="2517" height="219" key="GridCell.Tab.0.right" timestamp="1587633003372">
+    <state width="2517" height="269" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1588722820742" />
+    <state width="2517" height="269" key="GridCell.Tab.0.right" timestamp="1588722820742">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="219" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1587633003372" />
+    <state width="2517" height="269" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1588722820742" />
     <state width="2517" height="219" key="GridCell.Tab.1.bottom" timestamp="1587633003372">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -322,7 +356,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Leaf_Disease_Detection$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1587632672765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/codes/glcm" />
+    <SUITE FILE_PATH="coverage/Leaf_Disease_Detection$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1588722780760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/codes/glcm" />
     <SUITE FILE_PATH="coverage/Leaf_Disease_Detection_master$cnn_train.coverage" NAME="cnn_train Coverage Results" MODIFIED="1587053911141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/codes/cnn" />
     <SUITE FILE_PATH="coverage/Leaf_Disease_Detection_master$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1587054517218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/codes/glcm" />
     <SUITE FILE_PATH="coverage/Leaf_Disease_Detection_master$feature_ext.coverage" NAME="feature_ext Coverage Results" MODIFIED="1587054538326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/codes/glcm" />
