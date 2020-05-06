@@ -19,7 +19,9 @@ import warnings
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-LEAF = "tomato"
+LEAF = "pepper"
+IS_SICK = False
+
 LEAF_FOLDER = "../../data/" + LEAF
 RESULT = listdir(f"../../data/" + LEAF + "/training/")
 
@@ -164,7 +166,7 @@ def classify_disease():
 
     i = np.argmax(results)
 
-    print("\n\nmax:", names[i], '  ', results[i])
+    print("\n\nModelo mas exacto:", names[i], results[i])
 
     model = saved[i]
 
@@ -178,4 +180,9 @@ feature_extraction_training_datasets()
 feature_extraction_test_datasets()
 result = classify_disease()
 
-print('Resultado:', RESULT[result])
+if RESULT[result] != 'healthy':
+    IS_SICK = True
+    print('La planta esta enferma. Tiene:', RESULT[result])
+else:
+    print('La planta esta sana')
+
