@@ -2,7 +2,7 @@
 Detección de varias enfermedades de plantas usando GLCM (Grey Level Co-Occurrence Matrix) y tecnicas de Gradient Boosting Classifier
 
 ## Notas:
-1. Los datasets se descargan desde esta página : https://drive.google.com/file/d/1LRjy-yXIuH61Jlsnq5K2EBMKnrCdPA8q/view?usp=sharing
+1. Los datasets se descargan desde esta página : https://drive.google.com/file/d/1NqZAbMaywyIq6uoJxO98dPZCV6SsA97-/view?usp=sharing
 
 ## Uso:
 1. Descargar el .rar con los datasets, dentro del proyecto crear una carpeta 'data' al mismo nivel que la carpeta 'code', y descomprimir el .rar ahí. Dentro de cada dataset de plantas, crear una carpeta llamada 'healthy' con imagenes sanas de la planta, al mismo nivel que las carpetas de las enfermedades.
